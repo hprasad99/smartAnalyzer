@@ -1,0 +1,32 @@
+{% extends "blog/base.html"%}
+
+{% block maincontent%}
+
+<div class="row">
+  <div class="card">
+    <div class="container">
+      <a href="{% url 'blog-era' %}">
+        <h4><b>Exam Result Analysis</b></h4>
+      </a>
+      <p>SmartAnalyzer: Module for analyzing exam results and student performance</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="container">
+      <a href="{% url 'blog-saa' %}">
+        <h4><b>Student Attendance Analysis</b></h4>
+      </a>
+      <p>SmartAnalyzer: Module for analyzing student attendance</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="container">
+      <a href="{% url 'blog-sm' %}">
+        <h4><b>Schedule Manager</b></h4>
+      </a>
+      <p>SmartAnalyzer: Module for managing daily lecture schedule and curricular events</p>
+    </div>
+  </div>
+</div>
+
+{% endblock maincontent%}

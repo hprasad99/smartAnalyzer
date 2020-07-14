@@ -1,0 +1,47 @@
+{% extends "blog/base.html" %}
+{% block maincontent %}
+
+
+<hr>
+<h1>{{title}}</h1>
+<h4>Display</h4>
+<hr>
+<div style="overflow-x:auto;">
+    <div>
+        <form action="{% url 'blog-sm-display' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table style="border: 3px solid rgba(162, 202, 255, 0.082); width: 100%">
+                <tr>
+                    <td width="20%">Select Class: </td>
+                    <td width="40%">
+                        <select name="class" style="width: 100%;" required="required">
+                            {% for cl in classes %}
+                            <option>{{cl}}</option>"
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td  width="40%"><input type="submit" value="Display Schedule"
+                            style="border: 1px solid blue; border-radius: 2px; cursor: pointer;">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <hr>
+
+    <table>
+        <tr>
+            {% for day in sched_head %}
+            <th>{{day}}</th>
+            {% endfor %}
+        </tr>
+        {% for row in sched %}
+        <tr style="border-bottom: 1px solid #ddd;">
+            {% for cell in row %}
+            <td>{{cell}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock maincontent %}

@@ -1,0 +1,106 @@
+{% extends "blog/base.html"%}
+{% block maincontent %}
+<hr>
+<h1>Exam Result Analysis</h1>
+<h5>Result Page</h5>
+<hr>
+
+<h3>Details: </h3>
+<table>
+    <tr>
+        <td>Exam Name:</td>
+        <td>{{e_name}}</td>
+    </tr>
+    <tr>
+        <td>Maximum score:</td>
+        <td>{{max_score}}</td>
+    </tr>
+    <tr>
+        <td>No. of Questions:</td>
+        <td>{{q_count}}</td>
+    </tr>
+</table>
+<hr>
+<h3>Toppers:</h3>
+<div style="overflow-x:auto;">
+<table>
+    <tr>
+        {% for item in rep_head %}
+        <th>{{item}}</th>
+        {% endfor %}
+    </tr>
+    {% for row in toppers %}
+    <tr  style="border-bottom: 1px solid #ddd;">
+        {% for cell in row %}
+        <td>{{cell}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<br>
+<p>Pass Percentage: {{pass_pert}}</p>
+<hr>
+<h3>Question wise Performance Prediction: </h3>
+<p>
+{% for line in regr_output %}
+{{line}}<br>
+{% endfor %}
+{{regr_output_l1}}</p>
+<hr>
+<h3>Graphics: </h3>
+<div class="row">
+    <div class='polaroid'>
+        <img src={{avg_chart}} style="width: 100%">
+        <div class="polaroidcontainer">
+            <p>Average and Maximum Marks Obtained</p>
+        </div>
+    </div>
+    <div class='polaroid'>
+        <img src={{attempt_chart}} style="width: 100%">
+        <div class="polaroidcontainer">
+            <p>Question-wise Preference</p>
+        </div>
+    </div>
+    <div class='polaroid'>
+        <img src={{scatter}} style="width: 100%">
+        <div class="polaroidcontainer">
+            <p>Scatter plot of total marks</p>
+        </div>
+    </div>
+    <div class='polaroid'>
+        <img src={{dbscan}} style="width: 100%">
+        <div class="polaroidcontainer">
+            <p>Density based Clustering of students according performance</p>
+        </div>
+    </div>
+    <div class='polaroid'>
+        <img src={{pie_chart}} style="width: 100%">
+        <div class="polaroidcontainer">
+            <p>Overall Student Performance</p>
+        </div>
+    </div>
+
+</div>
+<hr>
+<div style="overflow-x:auto;">
+<h3>Detailed Report: </h3>
+<p><i>(Eliminating absent student entries)</i></p>
+
+<table>
+    <tr>
+        {% for item in rep_head %}
+        <th>{{item}}</th>
+        {% endfor %}
+    </tr>
+    {% for row in report %}
+    <tr  style="border-bottom: 1px solid #ddd;">
+        {% for cell in row %}
+        <td>{{cell}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
+{% endblock maincontent %}

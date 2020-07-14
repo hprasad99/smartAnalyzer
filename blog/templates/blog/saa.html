@@ -1,0 +1,53 @@
+{% extends "blog/base.html" %}
+{% block maincontent %}
+
+<hr>
+<h1>{{title}}</h1>
+<hr>
+<div class="row">
+    <div class="card">
+        <div class="container">
+            <a href="{% url 'blog-saa-se-a' %}"><h4><b>SE-A</b></h4></a>
+            <p><b>Main GFM: </b> SampleName<br>
+                <b>Class Strength:</b> 70</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="container">
+            <h4><b>SE-B</b></h4>
+            <p><b>Main GFM: </b> SampleName<br>
+                <b>Class Strength:</b> 70</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="container">
+            <h4><b>TE-A</b></h4>
+            <p><b>Main GFM: </b> SampleName<br>
+                <b>Class Strength:</b> 70</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="container">
+            <h4><b>TE-B</b></h4>
+            <p><b>Main GFM: </b> SampleName<br>
+                <b>Class Strength:</b> 70</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="container">
+            <h4><b>BE-A</b></h4>
+            <p><b>Main GFM: </b> SampleName<br>
+                <b>Class Strength:</b> 70</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="container">
+            <h4><b>BE-B</b></h4>
+            <p><b>Main GFM: </b> SampleName<br>
+                <b>Class Strength:</b> 70</p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock maincontent %}

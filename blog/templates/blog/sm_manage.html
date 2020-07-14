@@ -1,0 +1,83 @@
+{% extends "blog/base.html" %}
+{% block maincontent %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<hr>
+<h1>{{title}}</h1>
+<h4>Manage</h4>
+<hr>
+<div>
+    <form action="{% url 'blog-sm-manage' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table style="border: 3px solid rgba(162, 202, 255, 0.082); width: 100%">
+            <tr>
+                <td width="70%">Select Class: </td>
+                <td width="30%">
+                    <select name="class" style="width: 100%;" required="required">
+                        {% for cl in classes %}
+                        <option>{{cl}}</option>"
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Select Day: </td>
+                <td>
+                    <select name="day" style="width: 100%;" required="required">
+                        {% for cl in days %}
+                        <option>{{cl}}</option>"
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Select Slot: </td>
+                <td>
+                    <select name="slot" style="width: 100%;" required="required">
+                        {% for cl in slots %}
+                        <option>{{cl}}</option>"
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Change To: </td>
+                <td><input type="text" title="New Slot" name="new_name" style="border: 1px solid black;"
+                        required="required"></td>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="Update"
+                        style="border: 1px solid blue; cursor: pointer; width: 70%;  margin-left: 15%; padding: 5px;">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</td>
+<td>
+    <hr>
+<p><i>{{update_comment}}</i></p>
+    <hr>
+    <div style="overflow-x:auto;">
+        <table>
+            <tr>
+                {% for day in sched_head %}
+                <th>{{day}}</th>
+                {% endfor %}
+            </tr>
+            {% for row in sched %}
+            <tr  style="border-bottom: 1px solid #ddd;">
+                {% for cell in row %}
+                <td>{{cell}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div> {% endblock maincontent %}

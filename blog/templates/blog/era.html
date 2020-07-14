@@ -1,0 +1,40 @@
+{% extends "blog/base.html"%}
+{% block maincontent %}
+
+<h1>{{title}}</h1>
+<hr>
+<div>
+    <form action="{% url 'blog-era' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Upload excel(.xlsx) file with defined format</p>
+        <input type="file" title="Upload excel file" name="excel_file" style="width: 100%;"
+            required="required">
+        <hr style="border: 2px solid rgba(37, 79, 133, 0.158);">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 40%;">Enter Exam Name: </td>
+                <td style="width: 60%;"><input type="text" title="Exam Name" name="e_name" style="width: 100%;"
+                        required="required"></td>
+            </tr>
+            <tr>
+                <td>Enter number of questions</td>
+                <td><input type="number" title="No. of Questions" name="q_count"
+                        style="width: 100%;" required="required"></td>
+            </tr>
+            <tr>
+                <td>Enter Maximum score</td>
+                <td><input type="number" title="Maximum score" name="max_score"
+                        style="width: 100%;" required="required"></td>
+            </tr>
+            <tr>
+                <td colspan="2" ><input type="submit" value="Upload"
+                    style=" width: 70%; border: 1px solid blue; border-radius: 2px; cursor: pointer; margin-left: 15%; padding: 5px">
+                </td>
+            </tr>
+
+        </table>
+
+
+    </form>
+</div>
+{% endblock maincontent %}

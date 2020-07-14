@@ -1,0 +1,47 @@
+{% extends "blog/base.html"%}
+{% block maincontent %}
+
+
+<hr>
+<h1>{{title}}</h1>
+<hr>
+<h5>Class Details</h5>
+<p>
+    <b>Main GFM: </b>SampleName<br>
+    <b>Strength: </b>70
+    </p>
+<hr>
+<h3>Graphics: </h3>
+<div class="row">
+    <div class='polaroid'>
+        <img src={{daywise_chart}} style="width: 100%">
+        <div class="polaroidcontainer">
+            <p>Day-wise Attendance</p>
+        </div>
+    </div>
+    <div class='polaroid'>
+        <img src={{scatter}} style="width: 100%">
+        <div class="polaroidcontainer">
+            <p>Current Attendance</p>
+        </div>
+    </div>
+</div>
+<hr>
+<h3>Detailed Report:</h3>
+<div style="overflow-x:auto;">
+<table>
+    <tr>
+        {% for item in detailed_report_head %}
+        <th>{{item}}</th>
+        {% endfor %}
+    </tr>
+    {% for row in detailed_report %}
+    <tr style="border-bottom: 1px solid #ddd;">
+        {% for cell in row %}
+        <td>{{cell}}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock maincontent %}

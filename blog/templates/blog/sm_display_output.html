@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+{% block maincontent %}
+
+
+<hr>
+<h1>{{title}}</h1>
+<h5>Result Page</h5>
+<hr>
+<div style="overflow-x:auto;">
+    <table border=1>
+        <tr>
+            {% for day in days %}
+            <th>{{day}}</th>
+            {% endfor %}
+        </tr>
+        {% for row in sched %}
+        <tr>
+            {% for cell in row %}
+            <td>{{cell}}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock maincontent %}
