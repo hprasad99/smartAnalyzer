@@ -21,7 +21,7 @@ et-xmlfile==1.0.1
 firebase==3.0.1
 gcloud==0.18.3
 googleapis-common-protos==1.51.0
-httplib2==0.17.3
+httplib2==0.18.0
 idna==2.9
 jdcal==1.4.1
 jmespath==0.9.4
