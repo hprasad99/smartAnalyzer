@@ -73,7 +73,7 @@ sseclient==0.0.26
 static3==0.7.0
 sympy==1.4
 tornado==6.0.4
-urllib3==1.25.8
+urllib3==1.26.5
 whitenoise==5.0.1
 win-inet-pton==1.1.0
 wincertstore==0.2
