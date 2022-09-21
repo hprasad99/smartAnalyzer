@@ -28,7 +28,7 @@ jmespath==0.9.4
 joblib==0.14.1
 jupyter==1.0.0
 jupyter-console==6.0.0
-jwcrypto==0.7
+jwcrypto==1.4
 kiwisolver==1.2.0
 marionette==0.2
 matplotlib==3.1.3
