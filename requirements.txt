@@ -4,7 +4,7 @@ astroid==1.6.6
 boto==2.49.0
 boto3==1.9.66
 botocore==1.12.189
-certifi==2020.4.5.1
+certifi==2022.12.7
 cffi==1.14.0
 chardet==3.0.4
 crypto==1.4.1
